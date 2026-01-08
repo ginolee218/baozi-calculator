@@ -1,0 +1,58 @@
+.btn-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    color: var(--text-main);
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 1.2rem;
+    line-height: 1;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.btn-control:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent);
+}
+
+.btn-control:active {
+    transform: scale(0.95);
+}
+
+/* Update control-group to accomodate buttons */
+.control-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* distribute space */
+    background: var(--input-bg);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    /* slightly more padding */
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+    gap: 0.5rem;
+    /* space between buttons and input */
+}
+
+/* Adjust input width since buttons take space */
+.input-ghost {
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    width: 100%;
+    min-width: 0;
+    /* flexbox fix */
+    text-align: center;
+    font-size: 1rem;
+    font-family: inherit;
+    padding: 0.25rem 0;
+    outline: none;
+    -moz-appearance: textfield;
+}

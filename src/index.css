@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-dark: #0f172a;
+  --card-bg: rgba(30, 41, 59, 0.6);
+  --input-bg: rgba(15, 23, 42, 0.4);
+  --text-main: #f8fafc;
+  --text-scnd: #94a3b8;
+  --accent: #38bdf8;
+  /* Sky 400 */
+  --highlight: #f472b6;
+  /* Pink 400 */
+  --success: #4ade80;
+  /* Green 400 */
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(244, 114, 182, 0.1) 0%, transparent 40%);
+}
+
+#root {
+  width: 100%;
+  max-width: 650px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(to right, #38bdf8, #f472b6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.05em;
+}
+
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.header-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  color: var(--text-scnd);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.2fr 1fr;
+  /* Name, Price, Qty, Subtotal */
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s ease;
+}
+
+.item-row:last-child {
+  border-bottom: none;
+}
+
+.item-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.item-name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  background: var(--input-bg);
+  border-radius: 8px;
+  padding: 0.25rem;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.control-group:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+}
+
+/* Label for input to show what it is on mobile if needed, or just placeholder/context */
+.input-label {
+  display: none;
+  /* hidden on desktop */
+  font-size: 0.7rem;
+  color: var(--text-scnd);
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+
+.input-ghost {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  padding: 0.25rem;
+  outline: none;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-ghost::-webkit-inner-spin-button,
+.input-ghost::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.subtotal {
+  text-align: right;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.summary-section {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--text-scnd);
+}
+
+.summary-value {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.total-highlight {
+  margin-top: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.final-price {
+  color: var(--success);
+  font-size: 2rem;
+  text-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.discount-badge {
+  font-size: 0.9rem;
+  color: var(--highlight);
+  background: rgba(244, 114, 182, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+@media (max-width: 600px) {
+  .header-row {
+    display: none;
+  }
+
+  .item-row {
+    grid-template-columns: 1fr 1fr auto;
+    grid-template-areas:
+      "name name total"
+      "price qty qty";
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .item-name {
+    grid-area: name;
+    font-size: 1.2rem;
+  }
+
+  .subtotal {
+    grid-area: total;
+    font-size: 1.2rem;
+    align-self: start;
+  }
+
+  /* We will assume the JSX has 2 control-group divs. 
+     The first one is price, second is qty */
+  .control-group:nth-of-type(2) {
+    grid-area: price;
+  }
+
+  .control-group:nth-of-type(3) {
+    grid-area: qty;
+  }
+
+  .input-label {
+    display: inline-block;
+  }
+
+  .control-group {
+    padding: 0.5rem;
+  }
+}
+
+.btn-control {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.btn-control:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: var(--accent);
+}
+
+.btn-control:active {
+  transform: scale(0.95);
+}
+
+/* Update control-group to accomodate buttons */
+.control-group {
+  gap: 0.5rem;
+  /* space between buttons and input */
+}
+
+/* Adjust input width since buttons take space */
+.input-ghost {
+  min-width: 0;
+  /* flexbox fix */
+  padding: 0.25rem 0;
+}
