@@ -120,7 +120,7 @@ body {
   /* hidden on desktop */
   font-size: 0.7rem;
   color: var(--text-scnd);
-  margin-right: 0.5rem;
+  margin-right: 0.25rem;
   white-space: nowrap;
 }
 
@@ -151,7 +151,7 @@ body {
 }
 
 .summary-section {
-  margin-top: 1rem;
+  margin-top: 0;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
