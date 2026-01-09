@@ -205,10 +205,10 @@ body {
   }
 
   .item-row {
-    grid-template-columns: 1fr 1fr auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "name name total"
-      "price qty qty";
+      "name name name total"
+      "price price qty qty";
     gap: 0.75rem;
     padding: 1rem;
   }
