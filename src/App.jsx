@@ -91,7 +91,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1 className="title">包子快計</h1>
+      <h1 className="title">包子快算</h1>
 
       <div className="glass-card">
         {/* Header Row */}
