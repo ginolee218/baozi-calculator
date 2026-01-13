@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg'],
       manifest: {
-        name: 'Baozi Calculator',
-        short_name: 'Baozi',
+        name: '包子快算',
+        short_name: '包子快算',
         description: 'Calculate baozi prices quickly and accurately',
         theme_color: '#ffffff',
         icons: [
