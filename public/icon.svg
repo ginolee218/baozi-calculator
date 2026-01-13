@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <circle cx="256" cy="256" r="240" fill="#f8f9fa"/>
+  <path d="M256 60 Q340 60 380 120" stroke="#e9ecef" stroke-width="20" fill="none" />
+  <path d="M256 60 Q172 60 132 120" stroke="#e9ecef" stroke-width="20" fill="none" />
+  
+  <path d="M256 160 Q300 120 340 160" stroke="#dee2e6" stroke-width="15" fill="none"/>
+  <path d="M256 160 Q212 120 172 160" stroke="#dee2e6" stroke-width="15" fill="none"/>
+  
+  <path d="M150 250 Q256 450 362 250" fill="none" stroke="#ffeaa7" stroke-width="0"/> 
+  <!-- Just a simple bun shape details -->
+  <path d="M256 100 C 300 100, 400 200, 400 300 C 400 400, 350 450, 256 450 C 162 450, 112 400, 112 300 C 112 200, 212 100, 256 100 Z" fill="#ffffff" stroke="#ced4da" stroke-width="10"/>
+  
+  <!-- Folds at the top -->
+  <path d="M256 100 L 256 180" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 100 L 280 170" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 100 L 232 170" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 100 L 300 150" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+  <path d="M256 100 L 212 150" stroke="#adb5bd" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Face (optional cute face) -->
+  <circle cx="200" cy="300" r="15" fill="#343a40"/>
+  <circle cx="312" cy="300" r="15" fill="#343a40"/>
+  <path d="M240 330 Q256 350 272 330" stroke="#343a40" stroke-width="5" fill="none"/>
+  <circle cx="190" cy="320" r="10" fill="#fab005" opacity="0.4"/>
+  <circle cx="322" cy="320" r="10" fill="#fab005" opacity="0.4"/>
+</svg>
