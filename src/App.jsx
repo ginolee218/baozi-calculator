@@ -55,31 +55,16 @@ function App() {
   const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
   // Discount Logic:
-  // If Total Quantity < 10: Actual Amount = Total Price
-  // Else (Total Quantity >= 10):
-  //   If (cabbage OR bean-paste OR flower-roll OR taro OR multigrain) quantity >= 1:
-  //      Actual Amount = Total Price - Price of "Taro Mantou"
-  //   Else If (white OR brown-sugar) quantity >= 1:
-  //      Actual Amount = Total Price - Price of "White Mantou"
+  // If Total Quantity >= 10, discount value is the lowest price 
+  // among the items that have quantity >= 1.
 
   let actualAmount = totalPrice
   let discountValue = 0
 
   if (totalQuantity >= 10) {
-    const tier1Triggers = ['cabbage', 'bean-paste', 'flower-roll', 'taro', 'multigrain']
-    const hasTier1 = items.some(item => tier1Triggers.includes(item.id) && item.quantity >= 1)
-
-    if (hasTier1) {
-      const taroItem = items.find(item => item.id === 'taro')
-      discountValue = taroItem ? taroItem.price : 22
-    } else {
-      const tier2Triggers = ['white', 'brown-sugar']
-      const hasTier2 = items.some(item => tier2Triggers.includes(item.id) && item.quantity >= 1)
-
-      if (hasTier2) {
-        const whiteItem = items.find(item => item.id === 'white')
-        discountValue = whiteItem ? whiteItem.price : 18
-      }
+    const activeItems = items.filter(item => item.quantity >= 1)
+    if (activeItems.length > 0) {
+      discountValue = Math.min(...activeItems.map(item => item.price))
     }
   }
 
