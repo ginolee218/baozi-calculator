@@ -55,17 +55,29 @@ function App() {
   const totalPrice = items.reduce((sum, item) => sum + (item.price * item.quantity), 0)
 
   // Discount Logic:
-  // If Total Quantity >= 10, discount value is the lowest price 
-  // among the items that have quantity >= 1.
+  // If Total Quantity >= 10, calculate how many free items are earned (totalQuantity / 10).
+  // The discount value is the sum of the prices of the N cheapest items purchased.
 
   let actualAmount = totalPrice
   let discountValue = 0
 
   if (totalQuantity >= 10) {
-    const activeItems = items.filter(item => item.quantity >= 1)
-    if (activeItems.length > 0) {
-      discountValue = Math.min(...activeItems.map(item => item.price))
-    }
+    // Collect all individual item prices based on their quantities
+    let purchasedPrices = []
+    items.forEach(item => {
+      for (let i = 0; i < (item.quantity || 0); i++) {
+        purchasedPrices.push(item.price)
+      }
+    })
+    
+    // Sort prices from lowest to highest
+    purchasedPrices.sort((a, b) => a - b)
+    
+    // Calculate how many items are free
+    const freeCount = Math.floor(totalQuantity / 10)
+    
+    // Sum the cheapest 'freeCount' items
+    discountValue = purchasedPrices.slice(0, freeCount).reduce((sum, price) => sum + price, 0)
   }
 
   if (discountValue > 0) {
