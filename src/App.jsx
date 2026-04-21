@@ -69,13 +69,13 @@ function App() {
         purchasedPrices.push(item.price)
       }
     })
-    
+
     // Sort prices from lowest to highest
     purchasedPrices.sort((a, b) => a - b)
-    
+
     // Calculate how many items are free
     const freeCount = Math.floor(totalQuantity / 10)
-    
+
     // Sum the cheapest 'freeCount' items
     discountValue = purchasedPrices.slice(0, freeCount).reduce((sum, price) => sum + price, 0)
   }
@@ -91,14 +91,6 @@ function App() {
       <h1 className="title">包子快算</h1>
 
       <div className="glass-card">
-        {/* Header Row */}
-        <div className="header-row">
-          <div>品項</div>
-          <div style={{ textAlign: 'center' }}>單價</div>
-          <div style={{ textAlign: 'center' }}>數量</div>
-          <div style={{ textAlign: 'right' }}>小計</div>
-        </div>
-
         {/* List */}
         <div>
           {items.map(item => (
